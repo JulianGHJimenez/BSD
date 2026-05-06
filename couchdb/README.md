@@ -15,23 +15,15 @@ curl -u <admin:paswword> -X GET http://localhost:5984/tiendaonline/_all_docs?inc
 - El "?" permite concatenar la condicion de busqueda
 - El "include_docs='true'" permite poner la condicion de poder ver toda la documentacion integrada en la base de datos, como id, nombres, categorias y mas...
 
-Lo siento pero no tendras mas acceso a esta base de datos aparte de esto, a menos que copies la base de datos.
+Lo siento pero no tendras mas acceso a esta base de datos aparte de esto, a menos que importes la base de datos.
 
-Te preguntaras como copiarla, verdad? pues la solucion te la dejo más abajo.
+Te preguntaras como importarla, verdad? pues la solucion te la dejo más abajo.
 
-curl -X POST http://<tu_usuario:tu_contra>@localhost:5984/_replicate \
+1. Descarga los .json que estan en el repo.
+2. En la terminal colocaras la siguien linea en la ubicacion del archivo descargado.
+ 
+curl -X POST http://<tu_usuario:tu_contra>@localhost:5984/tiendaonline/_bulk_docs \
 -H "Content-Type: application/json" \
--d '{
-  "source": "http://basec:bases@127.0.0.1:5984/tiendaonline",
-  "target": "tiendaonline",
-  "create_target": true
-}'
+-d @<nombre_del_json>
 
-
-curl -X POST http://<tu_ususario:tu_contra>@localhost:5984/_replicate \
--H "Content-Type: application/json" \
--d '{
-  "source": "http://basec:bases@127.0.0.1:5984/_users",
-  "target": "_users",
-  "create_target": true
-}'
+3. Ya deberias de poder ver tu base de datos en tu fauxton o aplicando un curl.
