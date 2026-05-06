@@ -7,18 +7,23 @@ Enlace a Apache couchDB(guia de instalacion): https://docs.couchdb.org/en/stable
 Enlace a Fauxton: http://127.0.0.1:5984/_utils
 
 ## Instalacion:
-
+1. 
 sudo apt update && sudo apt install -y curl apt-transport-https gnupg
 curl https://couchdb.apache.org/repo/keys.asc | gpg --dearmor | sudo tee /usr/share/keyrings/couchdb-archive-keyring.gpg >/dev/null 2>&1
 source /etc/os-release
 echo "deb [signed-by=/usr/share/keyrings/couchdb-archive-keyring.gpg] https://apache.jfrog.io/artifactory/couchdb-deb/ ${VERSION_CODENAME} main" \
     | sudo tee /etc/apt/sources.list.d/couchdb.list >/dev/null
-    
+2.    
 sudo apt update
 sudo apt install -y couchdb
 
+3.
 Modelo a instalar: Standalone o clustered → elige Standalone
 
+En lo siguiente colocaras: 127.0.0.1 que es la ip de escucha
+En la cockie puedes poner lo que quieras o dejarlo vacio y dejar que se genere solo(solo importa para hacer cluster de la base de datos).
+
+4. 
 sudo apt-get --no-install-recommends -y install \
     build-essential pkg-config erlang \
     libicu-dev libmozjs185-dev
@@ -26,6 +31,7 @@ sudo apt-get --no-install-recommends -y install \
 - Prueba a hacer un curl -u <tu_user:tu_contra> http://127.0.0.1:5984/ y si te dice {welcome ...} entonces ya funciona correctamente.
 - En caso de que no arranque prueba a usar:
 
+5.
 sudo systemctl start couchdb
 sudo systemctl enable couchdb
 
@@ -35,6 +41,13 @@ curl -u <admin:paswword> -X GET http://localhost:5984/tiendaonline/_all_docs?inc
 - El "_all_docs" permite ver todo el contenido de la base de datos
 - El "?" permite concatenar la condicion de busqueda
 - El "include_docs=true" permite poner la condicion de poder ver toda la documentacion integrada en la base de datos, como id, nombres, categorias y mas...
+
+curl -u <admin:password> -X DELETE http://localhost:5984/tiendaonline
+- con esta consulta eliminas la base de datos(cuidado al usarla)
+
+curl -u <admin:password> -X DELETE \
+"http://localhost:5984/tiendaonline/ID_DEL_DOCUMENTO?rev=REV_DEL_DOCUMENTO"
+- Con esta consulta eliminas un documento, necesitas tanto _id, como _rev
 
 Lo siento pero no tendras mas acceso a esta base de datos aparte de esto, a menos que importes la base de datos.
 
