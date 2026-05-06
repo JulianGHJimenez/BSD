@@ -38,6 +38,7 @@ curl -u <admin:paswword> -X GET http://localhost:5984/tiendaonline/_all_docs?inc
 
 Lo siento pero no tendras mas acceso a esta base de datos aparte de esto, a menos que importes la base de datos.
 
+## Importar
 Te preguntaras como importarla, verdad? pues la solucion te la dejo más abajo.
 
 1. Descarga los .json que estan en el repo.
