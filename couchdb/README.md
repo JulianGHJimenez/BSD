@@ -63,3 +63,19 @@ curl -X POST http://<tu_usuario:tu_contra>@localhost:5984/tiendaonline/_bulk_doc
 
 3. Ya deberias de poder ver tu base de datos en tu fauxton o aplicando un curl.
 4. Si hay conflicto a la hora de importar la base de datos se debe a los _rev, prueba a eliminarlos.
+
+## Imagenes del Fauxton
+
+![Imagen de las bases de datos en mi usuario](img/001.png)
+
+![Imagen de las bases de datos en mi usuario](img/002.png)
+
+![Imagen de las bases de datos en mi usuario](img/003.png)
+
+![Imagen de las bases de datos en mi usuario](img/004.png)
+
+![Imagen de las bases de datos en mi usuario](img/005.png)
+
+![Imagen de las bases de datos en mi usuario](img/006.png)
+
+![Imagen de las bases de datos en mi usuario](img/007.png)
