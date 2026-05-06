@@ -20,10 +20,11 @@ Lo siento pero no tendras mas acceso a esta base de datos aparte de esto, a meno
 Te preguntaras como importarla, verdad? pues la solucion te la dejo más abajo.
 
 1. Descarga los .json que estan en el repo.
-2. En la terminal colocaras la siguien linea en la ubicacion del archivo descargado.
+2. En la terminal colocaras la siguien linea en la ubicacion del archivo descargado, primero hazlo con la tiendaonline y despues con el _user.
  
 curl -X POST http://<tu_usuario:tu_contra>@localhost:5984/tiendaonline/_bulk_docs \
 -H "Content-Type: application/json" \
 -d @<nombre_del_json>
 
 3. Ya deberias de poder ver tu base de datos en tu fauxton o aplicando un curl.
+4. Si hay conflicto a la hora de importar la base de datos se debe a los _rev, prueba a eliminarlos.
